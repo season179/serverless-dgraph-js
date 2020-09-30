@@ -7,9 +7,10 @@ Error: Failed to load /Users/season/Repos/serverless-dgraph-js/node_modules/grpc
 ```
 
 ## Steps to reproduce
+Assuming you have a local dgraph running.
 1. run `npm install`
-2. run `serverless install`
-3. post a GraphQL mutation
+2. run `serverless offline`
+3. post a GraphQL mutation to `http://localhost:3000/dev/graphql` using app like insomnia
 ```
 mutation ($input: [UserInput!]!) {
   addUser(input: $input)
