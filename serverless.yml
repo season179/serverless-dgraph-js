@@ -1,0 +1,23 @@
+service:
+  name: serverless-dgraph-js
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ap-southeast-1
+  # environment:
+  #   MONGO_URI: ${env:MONGO_URI}
+  #   DGRAPH_HOSTNAME: ${env:DGRAPH_HOSTNAME}
+
+functions:
+  graphql: 
+    handler: src/graphql.server
+    events:
+    - http:
+        path: /graphql
+        method: post
+        cors: true
